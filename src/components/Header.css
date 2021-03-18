@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&display=swap');
+
+.header{
+    margin: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.header__image{
+    width: 80px;
+}
+
+.header__text{
+    margin: 30px;
+    font-family: 'Alegreya', serif;
+}
+

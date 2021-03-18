@@ -1,0 +1,51 @@
+.contactcard{
+    border-bottom: 3px solid black;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.25s 0s; 
+}
+
+.contactcard:hover{
+    transform: scale(1.02) translate(10px);
+}
+
+.contactcard__info{
+    display: flex;
+    align-items: center;
+    flex: 0.4;
+}
+
+.contactcard__info > h2{
+    margin-left: 10px;
+}
+
+.contactcard__phone{
+    display: flex;
+    align-items: center;
+    flex: 0.3;
+}
+
+.contactcard__delete{
+    font-size: 35px !important;
+    color: black;
+}
+
+.contactcard__phoneicon{
+    font-size: 30px !important;
+    margin-right: 5px;
+}
+
+.contactcard__right{
+    display: flex;
+    align-items: center;
+}
+
+.contactcard__arrows{
+    font-size: 30px !important;
+}
+
+.contactcard__avatar{
+    margin-right: 10px;
+}
