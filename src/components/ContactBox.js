@@ -22,7 +22,10 @@ function ContactBox(props) {
                     onChange={setPhone} />
                 <div className='contactbox__button'>
                     <AddIcon className='contactbox__addicon'/>
-                    <button onClick={() => props.handler(name,phone)}>Add</button>
+                    <button onClick={() => {
+                        phone === undefined ? setPhone("") : setPhone(phone);
+                        props.handler(name, phone);
+                    }}>Add</button>
                 </div>    
             </div>
         </div>

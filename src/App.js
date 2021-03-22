@@ -70,7 +70,6 @@ function App() {
       return user.phone === phone;
     });
     */
-    
     const duplicate = (fphone) => {
       const user = users.findIndex(({ id, name, phone }) => {
         return phone === formatPhoneNumber(fphone);
@@ -83,8 +82,8 @@ function App() {
     } else if (name === "") {
       alert('Enter the name');
     } else if (duplicate(phone) !== -1) {
-      alert('Contact is alreay saved');
-    }else {
+      alert('Contact is already saved');
+    } else {
       setUsers([...users, {
         name: name,
         phone: formatPhoneNumber(phone)
