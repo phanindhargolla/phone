@@ -16,13 +16,13 @@ function Contacts({ users, ondelete,swap,handler}) {
             <div className="characters" {...provided.droppableProps} ref={provided.innerRef}>
             {
                 users &&
-                users.map(({id, name,phone},index) => {
+                users.map(({id, name,phone,star},index) => {
                     return (
                         <Draggable key={id} draggableId={name} index={parseInt(index)}>
                             {(provided) =>
                             (
                                 <div {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                                    <ContactCard id={id} name={name} phone={phone} ondeletehandler={ondelete} users={users}/>
+                                    <ContactCard id={id} name={name} phone={phone} tstar={star} ondeletehandler={ondelete} users={users}/>
                                 </div>
                                 )
                             }   

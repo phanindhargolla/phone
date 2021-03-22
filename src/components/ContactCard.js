@@ -10,15 +10,19 @@ import validator from 'validator';
 import db from './firebase';
 
 
-function ContactCard({id, name, phone, ondeletehandler, users }) {
+function ContactCard({id, name, phone, tstar, ondeletehandler, users }) {
 
-    const [star, setStar] = useState(false);
+    const [star, setStar] = useState(tstar);
     const [seed, setSeed] = useState('');
     
     useEffect(() => {
         setSeed(Math.floor(Math.random() * 5000));
     }, []);
     
+    useEffect(() => {
+        db.ref().child('users').child(id).update({ star: star });
+    },[star])
+
     const handleName = (fname) => {
         db.ref().child('users').child(id).update({ name: fname});
     }
@@ -66,9 +70,9 @@ function ContactCard({id, name, phone, ondeletehandler, users }) {
         <div className='contactcard'>
             <div className='contactcard__info'>
                 <IconButton onClick={() => star? setStar(false) : setStar(true)}>
-                {
+                    {    
                     star ? (
-                        <StarIcon htmlColor='#f7cb69' />
+                            <StarIcon htmlColor='#f7cb69' />
                     ) : (
                         <StarBorderIcon />    
                     )

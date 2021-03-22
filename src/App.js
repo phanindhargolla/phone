@@ -19,7 +19,8 @@ function App() {
           return {
             id: key,
             name: obj[key].name,
-            phone: obj[key].phone
+            phone: obj[key].phone,
+            star: obj[key].star
           }
         });
         setUsers(objects);
@@ -88,7 +89,7 @@ function App() {
         name: name,
         phone: formatPhoneNumber(phone)
       }]);
-      db.ref().child('users').push().set({ name: name, phone: formatPhoneNumber(phone) });
+      db.ref().child('users').push().set({ name: name, phone: formatPhoneNumber(phone), star: false });
       /*
       let ref = db.ref('users');
       ref.orderByChild('name').on('child_added', (snap) => {
