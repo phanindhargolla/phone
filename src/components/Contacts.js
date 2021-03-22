@@ -3,11 +3,11 @@ import './Contacts.css'
 import ContactCard from './ContactCard';
 import { DragDropContext,Droppable,Draggable} from 'react-beautiful-dnd';
 
-function Contacts({ users, ondelete,swap }) {
+function Contacts({ users, ondelete,swap,handler}) {
     function handleOnDragEnd(result) {
         swap(result);
-};
-
+};    
+    
     return (
         <div className='contacts'>
         <DragDropContext onDragEnd={handleOnDragEnd}>
@@ -16,13 +16,13 @@ function Contacts({ users, ondelete,swap }) {
             <div className="characters" {...provided.droppableProps} ref={provided.innerRef}>
             {
                 users &&
-                users.map(({name,phone},index) => {
+                users.map(({id, name,phone},index) => {
                     return (
-                        <Draggable key={name} draggableId={name} index={parseInt(index)}>
+                        <Draggable key={id} draggableId={name} index={parseInt(index)}>
                             {(provided) =>
                             (
                                 <div {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                                        <ContactCard name={name} phone={phone} ondeletehandler={ondelete} />
+                                    <ContactCard id={id} name={name} phone={phone} ondeletehandler={ondelete} users={users}/>
                                 </div>
                                 )
                             }   
